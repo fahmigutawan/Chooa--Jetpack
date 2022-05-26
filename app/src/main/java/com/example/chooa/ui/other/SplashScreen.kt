@@ -63,9 +63,13 @@ fun MySplash(navController: NavController, scope: CoroutineScope) {
         scope.launch {
             delay(1500)
             if(isFirstTime.first()){
-                navController.navigate(FirstLayerRoute.Onboard.route)
+                navController.navigate(FirstLayerRoute.Onboard.route){
+                    popUpTo(FirstLayerRoute.Splash.route){inclusive = true}
+                }
             }else{
-                navController.navigate(FirstLayerRoute.Home.route)
+                navController.navigate(FirstLayerRoute.Home.route){
+                    popUpTo(FirstLayerRoute.Splash.route){inclusive = true}
+                }
             }
         }
     })
